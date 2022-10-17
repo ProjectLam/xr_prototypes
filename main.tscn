@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwm6a17c56plr"]
+[gd_scene load_steps=5 format=3 uid="uid://dwm6a17c56plr"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_cinth"]
 
@@ -10,15 +10,6 @@ size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_a3vya"]
 size = Vector2(10, 10)
-
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_nm4ff"]
-
-[sub_resource type="Sky" id="Sky_fvrp4"]
-sky_material = SubResource("PhysicalSkyMaterial_nm4ff")
-
-[sub_resource type="Environment" id="Environment_4445r"]
-background_mode = 2
-sky = SubResource("Sky_fvrp4")
 
 [node name="Node3d" type="Node3D"]
 script = ExtResource("1_cinth")
@@ -44,8 +35,5 @@ mesh = SubResource("BoxMesh_hn3hy")
 [node name="Floor" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_a3vya")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_4445r")
-
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.116669, 0.166689, 0)
+transform = Transform3D(0.124239, 0.988649, 0.0844837, 0.817537, -0.150243, 0.555932, 0.562314, 0, -0.826924, -3.04107, 3.96851, -2.45824)

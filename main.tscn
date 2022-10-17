@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwm6a17c56plr"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_cinth"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b0xvk"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hn3hy"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a3vya"]
+size = Vector2(10, 10)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_nm4ff"]
+
+[sub_resource type="Sky" id="Sky_fvrp4"]
+sky_material = SubResource("PhysicalSkyMaterial_nm4ff")
+
+[sub_resource type="Environment" id="Environment_4445r"]
+background_mode = 2
+sky = SubResource("Sky_fvrp4")
+
+[node name="Node3d" type="Node3D"]
+script = ExtResource("1_cinth")
+
+[node name="XrOrigin3d" type="XROrigin3D" parent="."]
+
+[node name="XrCamera3d" type="XRCamera3D" parent="XrOrigin3d"]
+
+[node name="LeftHand" type="XRController3D" parent="XrOrigin3d"]
+tracker = &"left_hand"
+pose = &"aim"
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="XrOrigin3d/LeftHand"]
+mesh = SubResource("BoxMesh_b0xvk")
+
+[node name="RightHand" type="XRController3D" parent="XrOrigin3d"]
+tracker = &"right_hand"
+pose = &"aim"
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="XrOrigin3d/RightHand"]
+mesh = SubResource("BoxMesh_hn3hy")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_a3vya")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4445r")
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.116669, 0.166689, 0)
